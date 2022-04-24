@@ -1,5 +1,6 @@
 package com.example.plana22.Adapters
 
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +13,10 @@ import com.example.plana22.R
 import com.example.plana22.RoomDetail.DetailDao
 import com.example.plana22.RoomDetail.DetailEntity
 import kotlinx.android.synthetic.main.item_rv_overview.view.*
+import java.security.AccessController.getContext
 
 class OverviewAdapter(
-    var context: Context,
+    val context: Context,
     val list: ArrayList<DetailEntity>,
     val detailDao: DetailDao
 
@@ -29,6 +31,7 @@ class OverviewAdapter(
              val popupMenus = PopupMenu(context, view)
             popupMenus.inflate(R.menu.options_menu)
             popupMenus.setOnMenuItemClickListener {
+
                 when (it.itemId) {
                     //What happens when Delete is clicked on
                     R.id.delete -> {
@@ -38,13 +41,20 @@ class OverviewAdapter(
                         ).show()
 
                     }
-                    // in the same way you can implement others
+                    R.id.item_1 -> {
+                        Toast.makeText(context,
+                            "item 1 clicked ", Toast.LENGTH_SHORT).show()
+                        //true
+                    }
                     R.id.item_2 -> {
-                           //true
+                        Toast.makeText(
+                            context,
+                            "item 2 clicked", Toast.LENGTH_SHORT).show()
+                        //true
                     }
                     R.id.item_3 -> {
                         Toast.makeText(context,
-                            "item clicked", Toast.LENGTH_SHORT).show()
+                            "item 3 clicked", Toast.LENGTH_SHORT).show()
                         //true
                     }
                 }

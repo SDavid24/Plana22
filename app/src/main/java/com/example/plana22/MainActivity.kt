@@ -1,9 +1,11 @@
 package com.example.plana22
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.content.ContentProviderCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.add
@@ -16,12 +18,25 @@ import kotlinx.android.synthetic.main.nav_activity_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
+    val detailFragment = DetailFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        if (savedInstanceState == null) {
+            val overviewFragment = OverviewFragment()
+            supportFragmentManager.beginTransaction()
+                .add(R.id.flFragment, overviewFragment)
+                .commit()
+        }
+
+
+
         setContentView(R.layout.nav_activity_main)
         setSupportActionBar(mainView_toolbar)
+
+        //application.Context = applicationContext
 
         val actionbar = supportActionBar
 
@@ -67,7 +82,9 @@ class MainActivity : AppCompatActivity() {
 
             true
         }
+
     }
+
 
     /**method to make the hamburger button responsive when clicked*/
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

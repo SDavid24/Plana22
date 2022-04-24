@@ -3,7 +3,7 @@ package com.example.plana22.RoomDetail
 import android.content.Context
 import androidx.room.*
 
-@Database(entities = [DetailEntity::class], version = 5, exportSchema = false )
+@Database(entities = [DetailEntity::class], version = 6, exportSchema = false )
 @TypeConverters(TaskListConverter::class)
 abstract class DetailDatabase : RoomDatabase() {
 

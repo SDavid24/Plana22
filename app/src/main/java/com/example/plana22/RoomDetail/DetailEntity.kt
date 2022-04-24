@@ -13,7 +13,7 @@ import java.io.Serializable
 @Entity(tableName = "detail-table")
 data class DetailEntity(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id") val id: Int = 0,
+    @ColumnInfo(name = "id") var id: Int = 0,
     @ColumnInfo(name = "Image") var image: Int? = null,
     @ColumnInfo(name = "Task amount ") var taskAmount: Int? = null,
     @ColumnInfo(name = "Category") var category: String = "",

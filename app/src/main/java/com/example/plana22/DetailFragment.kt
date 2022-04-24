@@ -2,22 +2,18 @@ package com.example.plana22
 
 import android.app.Dialog
 import android.os.Bundle
-import android.telecom.Call
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.plana22.Activities.OverviewActivity
 import com.example.plana22.Adapters.DetailAdapter
 import com.example.plana22.OverviewFragment.Companion.EXTRA_TASK_DETAILS
 import com.example.plana22.RoomDetail.DetailApp
 import com.example.plana22.RoomDetail.DetailDao
 import com.example.plana22.RoomDetail.DetailEntity
 import com.example.plana22.RoomDetail.TaskList
-import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.add_task_dialog.*
 import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.coroutines.flow.collect
@@ -60,7 +56,9 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
         /*Event clickListener for the Fab button. It opens up the Add Task dialog*/
         fabAddTask.setOnClickListener {
-            addCategoryDialog(activityObjectID(), detailDao)
+            addTaskToCategoryDialog(
+                //activityObjectID(),
+                detailDao)
         }
 
         /**Coroutine that calculates the amount of data inserted
@@ -87,9 +85,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
      */
     private fun setupListOfDataIntoRecyclerView(list : ArrayList<TaskList>, detailDao: DetailDao) {
 
-        val newTaskList = list
-
-        if (newTaskList.isNotEmpty()) {
+        if (list.isNotEmpty()) {
 
             Log.i("Checker", "This line makes sense")
             rv_detail.visibility = View.VISIBLE
@@ -102,11 +98,11 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
             val detailAdapter = DetailAdapter(requireContext(), detailDao)
             // adapter instance is set to the recyclerview to inflate the items.
             rv_detail.adapter = detailAdapter
-            detailAdapter.setListData(newTaskList)
+            detailAdapter.setListData(list)
 
             taskText.text = "${detailAdapter.items.count()} Tasks"
 
-            Log.i("Lists of tasks for ${detailActivityModel!!.category}", newTaskList.toString())
+            Log.i("Lists of tasks for ${detailActivityModel!!.category}", list.toString())
 
         } else {
             Log.i("Checker", "This line DOESN'T make sense")
@@ -119,7 +115,12 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     }
 
 
-    private fun addCategoryDialog(id: Int, detailDao : DetailDao) {
+
+    /**ATTENTION NEEDED HERE TOO!!
+     * This one add the tasks Successfully then the app crashes immediately afterwards */
+    private fun addTaskToCategoryDialog(
+        //id: Int,
+        detailDao : DetailDao) {
         val addDialog = Dialog(requireContext(), R.style.Theme_Dialog)
         addDialog.setContentView(R.layout.add_task_dialog)
         addDialog.show()
@@ -216,7 +217,10 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         return objectID.text.toString().toInt()
     }
 
-    /**Method to Delete the details in a  using an Alert Dialog*/
+
+    /**ATTENTION NEEDED HERE TOO!!
+     * This crashed the app immediately the click icon is clicked
+     *Method to Delete the details in a  using an Alert Dialog*/
     fun deleteRecordDialog(id:Int, detailDao: DetailDao) {
         val builder = androidx.appcompat.app.AlertDialog.Builder(
             requireContext(), R.style.AlertDialogTheme)

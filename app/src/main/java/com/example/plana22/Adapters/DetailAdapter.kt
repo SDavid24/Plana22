@@ -5,27 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.plana22.Activities.DetailActivity
+import com.example.plana22.DetailFragment
 import com.example.plana22.R
 import com.example.plana22.RoomDetail.DetailDao
-import com.example.plana22.RoomDetail.DetailEntity
 import com.example.plana22.RoomDetail.TaskList
 import kotlinx.android.synthetic.main.item_rv_detail.view.*
 
 class DetailAdapter(
     val context: Context,
     val detailDao : DetailDao
-
 ): RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
-    val arrayTaskList = ArrayList<TaskList>()
-    var detailActivityModel: DetailEntity? = null
 
     var items  = mutableListOf<TaskList>()
 
-     class DetailViewHolder(view: View ): RecyclerView.ViewHolder(view) {
+    var detailFragment = DetailFragment()
 
+    class DetailViewHolder(view: View ): RecyclerView.ViewHolder(view) {
         var ivDelete = view.ivDelete
-
     }
 
     fun setListData(data: ArrayList<TaskList>) {
@@ -41,22 +37,21 @@ class DetailAdapter(
         return DetailViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: DetailAdapter.DetailViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
         val model = items[position]
 
-        if(holder is DetailViewHolder) {
-            holder.itemView.detailTaskID.text = getItemId(position).toString()
-            holder.itemView.tvTaskDetail.text =  model.tasks
-            holder.ivDelete.setOnClickListener {
+        holder.itemView.detailTaskID.text = getItemId(position).toString()
+        holder.itemView.tvTaskDetail.text =  model.tasks
+        holder.ivDelete.setOnClickListener {
 
-                if(context is DetailActivity){
-                    context.deleteRecordDialog(position, detailDao)
+            //if(context is OverviewFragment){
 
-                    //notifyItemRemoved(position)
-                    //notifyItemChanged(position)
-                    //notifyDataSetChanged()
-                }
-            }
+            detailFragment.deleteRecordDialog(position, detailDao)
+
+                //notifyItemRemoved(position)
+                //notifyItemChanged(position)
+                //notifyDataSetChanged()
+            //}
         }
 
     }
@@ -64,7 +59,6 @@ class DetailAdapter(
     override fun getItemCount(): Int {
         return items.size
     }
-
 }
 
 

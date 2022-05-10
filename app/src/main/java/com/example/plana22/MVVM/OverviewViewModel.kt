@@ -1,4 +1,4 @@
-package com.example.plana22
+package com.example.plana22.MVVM
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -12,12 +12,9 @@ import kotlinx.android.synthetic.main.add_category_dialog.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-import android.app.Activity
 import android.app.Application
-import android.os.Looper.*
-import android.util.Log
-import androidx.annotation.MainThread
 import androidx.lifecycle.*
+import com.example.plana22.R
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.withContext
 
@@ -39,7 +36,7 @@ class OverviewViewModel(val context : Context,
 
 
     /**Block of code that has the logic in the View Model that'll Add the Category */
-    fun addCategoryDialogVMN() {
+    fun addCategoryDialogInVM() {
         val addDialog = Dialog(context, R.style.Theme_Dialog)
         addDialog.setContentView(R.layout.add_category_dialog)
         addDialog.show()

@@ -1,4 +1,4 @@
-package com.example.plana22
+package com.example.plana22.MVVM
 
 import android.app.Application
 import android.content.Context

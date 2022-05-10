@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.plana22.DetailFragment
+import com.example.plana22.fragments.DetailFragment
 import com.example.plana22.R
 import com.example.plana22.RoomDetail.DetailDao
 import com.example.plana22.RoomDetail.TaskList

@@ -56,6 +56,9 @@
         <item name="colorOnPrimary">@color/white</item>
     </style>
 
+    <style name="Theme.Projemanag.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.Projemanag.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
     <style name="CustomToolbarStyle">
     <item name="android:textColorPrimary">#000000</item>
         <item name="android:colorControlNormal">#000000</item>
@@ -74,12 +77,29 @@
         <item name="android:windowMinWidthMinor">90%</item>
     </style>
 
-<!--
-    <style name="Theme.Plana.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>&ndash;&gt;
--->
+    <style name="Logout_Theme_Dialog" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">95%</item>
+        <item name="android:windowMinWidthMinor">95%</item>
+    </style>
+
+
+
+
+    <style name="firebase_project" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimaryVariant">@color/yellow</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+
+    <style name="firebase_project.NoActionBar">
+    <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item></style>
+    <!--
+        </style>&ndash;&gt;
+    -->
 
 
     <!--

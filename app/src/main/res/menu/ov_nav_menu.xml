@@ -5,55 +5,67 @@
     tools:showIn="navigation_view"
     >
 
-    <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home"
-        />
-    <item
-        android:id="@+id/nav_habits"
-        android:icon="@drawable/ic_baseline_check"
-        android:title="Habits"
-        />
+    <group android:checkableBehavior="single">
 
-    <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_baseline_settings"
-        android:title="Settings"
-        />
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/home"
+            />
+        <item
+            android:id="@+id/nav_habits"
+            android:icon="@drawable/ic_baseline_check"
+            android:title="@string/habits"
+            />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_nav_user"
+            android:title="@string/my_profile"
+            />
 
 
-    <item  android:title="Profile" >
+        <item  android:title="@string/settings"
+            android:checkable="true">
 
-        <menu>
+            <menu>
 
-            <item
-                android:id="@+id/nav_login"
-                android:icon="@drawable/ic_baseline_login"
-                android:title="Login"
-                />
+                <item
+                    android:id="@+id/nav_settings"
+                    android:icon="@drawable/ic_baseline_settings"
+                    android:title="@string/settings"
+                    />
 
-        </menu>
+                <item
+                    android:id="@+id/nav_signOut"
+                    android:icon="@drawable/ic_signout"
+                    android:title="@string/sign_out"
+                    />
 
-    </item>
+            </menu>
 
-    <item  android:title="Communicate" >
-        <menu>
+        </item>
 
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_baseline_share"
-                android:title="Share"
-                />
+        <item  android:title="Communicate"
+            android:checkable="true">
+            <menu>
 
-            <item
-                android:id="@+id/nav_rate"
-                android:icon="@drawable/ic_baseline_rate_review"
-                android:title="Rate us"
-                />
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_baseline_share"
+                    android:title="Share"
+                    />
 
-        </menu>
+                <item
+                    android:id="@+id/nav_rate"
+                    android:icon="@drawable/ic_baseline_rate_review"
+                    android:title="Rate us"
+                    />
 
-    </item>
+            </menu>
+
+        </item>
+
+    </group>
 
 </menu>

@@ -1,4 +1,4 @@
-package com.example.plana22
+package com.example.plana22.fragments
 
 import android.app.Dialog
 import android.os.Bundle
@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.plana22.Adapters.DetailAdapter
-import com.example.plana22.OverviewFragment.Companion.EXTRA_TASK_DETAILS
+import com.example.plana22.fragments.OverviewFragment.Companion.EXTRA_TASK_DETAILS
+import com.example.plana22.R
 import com.example.plana22.RoomDetail.DetailApp
 import com.example.plana22.RoomDetail.DetailDao
 import com.example.plana22.RoomDetail.DetailEntity
@@ -42,8 +43,6 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
             //Brings in the ID of the category into this activity which can
             //be used for further purposes
             objectID.text = detailActivityModel!!.id.toString()
-            val numba = objectID.text.toString().toInt()
-            Toast.makeText(requireContext(),"Object ID is $numba", Toast.LENGTH_LONG).show()
 
         }
 
@@ -78,6 +77,8 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         //calling the setup recycler view function
 
     }
+
+
 
 
     /**
@@ -223,7 +224,8 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
      *Method to Delete the details in a  using an Alert Dialog*/
     fun deleteRecordDialog(id:Int, detailDao: DetailDao) {
         val builder = androidx.appcompat.app.AlertDialog.Builder(
-            requireContext(), R.style.AlertDialogTheme)
+            requireContext(), R.style.AlertDialogTheme
+        )
         builder.setCancelable(false)
         builder.setTitle("Delete Record")
 

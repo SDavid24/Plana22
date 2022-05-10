@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".OverviewFragment">
+    tools:context=".fragments.OverviewFragment">
 
 <!--android:background="@color/teal_700"-->
 
@@ -19,16 +19,6 @@
         android:layout_marginTop="-750dp"
         android:src="@drawable/yellow_circle" />
 
-<!--
-    <ImageView
-        android:id="@+id/activity_background_image"
-        android:layout_width="1000dp"
-        android:layout_height="1000dp"
-        android:layout_marginStart="-200dp"
-        android:layout_marginTop="-700dp"
-        android:layout_marginEnd="-200dp"
-        android:src="@drawable/yellow_circle" />
--->
 
     <LinearLayout
         android:id="@+id/ll_overview_below"
@@ -56,10 +46,11 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/hello_name_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="Hello David"
+                    tools:text="Hello David"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -103,6 +94,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/hello_image"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"

@@ -2,45 +2,74 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.plana22">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
     <application
-        android:allowBackup="true"
         android:name=".RoomDetail.DetailApp"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
         android:theme="@style/Theme.Plana">
         <activity
-            android:name=".Activities.DrawerActivity"
+            android:name=".Activities.introduction.ProfileActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:label="@string/title_activity_drawer"/>
+            android:theme="@style/firebase_project.NoActionBar"/>
         <activity
-            android:name=".Activities.DetailActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/CustomNoActionBarTheme"
-            />
-        <activity
-            android:name=".Activities.OverviewActivity"
-            android:theme="@style/Theme.Plana.NoActionBar"
-            android:screenOrientation="portrait"
-            android:exported="false"
-            />
-        <activity
-            android:name=".MainActivity"
+            android:name=".Activities.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/CustomNoActionBar"
-            >
+            android:theme="@style/Theme.Plana.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".Activities.introduction.BaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.introduction.SignInActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/firebase_project.NoActionBar" />
+        <activity
+            android:name=".Activities.introduction.SignUpActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/firebase_project.NoActionBar" />
+        <activity
+            android:name=".Activities.introduction.IntroActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/firebase_project.NoActionBar" />
+        <activity
+            android:name=".Activities.DrawerActivity"
+            android:exported="false"
+            android:label="@string/title_activity_drawer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.DetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomNoActionBarTheme" />
+        <activity
+            android:name=".Activities.OverviewActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Plana.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomNoActionBar" />
     </application>
 
 </manifest>

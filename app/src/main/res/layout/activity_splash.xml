@@ -5,9 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="10dp"
-    tools:context=".Activities.MainActivity"
+    tools:context=".Activities.SplashActivity"
     android:gravity="center_horizontal">
-
 
     <ImageView
         android:id="@+id/middle_yellow_image"
@@ -34,28 +33,28 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:padding="5dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Plana is a simple and effective  "
-        android:textSize="15sp"
-        android:layout_margin="4dp"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="to-list and task manager app which"
-        android:textSize="15sp"
-        android:layout_margin="4dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plana is a simple and effective  "
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="to-list and task manager app which"
+            android:textSize="15sp"
+            android:layout_margin="4dp"
 
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" helps you manage time."
-        android:textSize="15sp"
-        android:layout_margin="4dp"
-        />
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" helps you manage time."
+            android:textSize="15sp"
+            android:layout_margin="4dp"
+            />
 
     </LinearLayout>
 
@@ -71,8 +70,8 @@
         android:theme="@style/ButtonTheme"
         android:background="@drawable/mybutton"/>
 
-<!--
-    android:backgroundTint="@color/teal_200"/>
--->
+    <!--
+        android:backgroundTint="@color/teal_200"/>
+    -->
 
 </LinearLayout>

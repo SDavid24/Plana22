@@ -15,4 +15,7 @@
     <color name="primary_text_color">#212121</color>
     <color name="item_plana_description_text_color">#606060</color>
 
+    <color name="snackBar_error_color">#F72400</color>
+
+
 </resources>

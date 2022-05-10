@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "388792383888",
+    "project_id": "plana22",
+    "storage_bucket": "plana22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388792383888:android:f0733ad0b3509963269b15",
+        "android_client_info": {
+          "package_name": "com.example.plana22"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388792383888-ptffhkb8mdbhnd2jctisjnopgg57g08g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqyG6b_kD9ourvkJ7qe1hAicaRUxNdBJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388792383888-ptffhkb8mdbhnd2jctisjnopgg57g08g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

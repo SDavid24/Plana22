@@ -3,20 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.21458333333333332" />
+        <entry key="app/src/main/res/drawable/ic_nav_user.xml" value="0.10648148148148148" />
+        <entry key="app/src/main/res/drawable/white_button_background.xml" value="0.12129629629629629" />
+        <entry key="app/src/main/res/drawable/yellow_backgrounded_rounded.xml" value="0.12129629629629629" />
+        <entry key="app/src/main/res/layout/activity_base.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.1322463768115942" />
         <entry key="app/src/main/res/layout/activity_drawer.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/activity_intro.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main 2.xml" value="0.1539855072463768" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.1322463768115942" />
         <entry key="app/src/main/res/layout/activity_overview.xml" value="0.13677536231884058" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/add_category_dialog.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/add_task_dialog.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_progress.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.13677536231884058" />
         <entry key="app/src/main/res/layout/fragment_overview.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/logout_dialog.xml" value="0.33" />
         <entry key="app/src/main/res/layout/nav_activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/nav_header_drawer.xml" value="0.2" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/menu/drawer.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/menu/options_menu.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/menu/ov_nav_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -30,8 +30,17 @@
 
     </LinearLayout>
 
+<!--
     <androidx.fragment.app.FragmentContainerView
-        android:name="com.example.plana22.OverviewFragment"
+        android:name="com.example.plana22.fragments.OverviewFragment"
+        android:id="@+id/flFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_overview_toolbar"
+        />
+-->
+
+    <FrameLayout
         android:id="@+id/flFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

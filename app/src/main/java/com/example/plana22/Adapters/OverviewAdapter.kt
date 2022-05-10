@@ -1,6 +1,5 @@
 package com.example.plana22.Adapters
 
-import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +7,11 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.plana22.OverviewFragment
+import com.example.plana22.fragments.OverviewFragment
 import com.example.plana22.R
 import com.example.plana22.RoomDetail.DetailDao
 import com.example.plana22.RoomDetail.DetailEntity
 import kotlinx.android.synthetic.main.item_rv_overview.view.*
-import java.security.AccessController.getContext
 
 class OverviewAdapter(
     val context: Context,

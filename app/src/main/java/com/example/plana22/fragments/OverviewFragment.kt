@@ -1,23 +1,43 @@
-package com.example.plana22
+package com.example.plana22.fragments
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.example.plana22.Activities.introduction.ProfileActivity
 import com.example.plana22.Adapters.OverviewAdapter
+import com.example.plana22.MVVM.OverviewViewModel
+import com.example.plana22.MVVM.OverviewViewModelFactory
+import com.example.plana22.MainActivity
+import com.example.plana22.MainActivity.Companion.MY_PROFILE_REQUEST_CODE
+import com.example.plana22.Models.User
+import com.example.plana22.R
 import com.example.plana22.RoomDetail.DetailApp
 import com.example.plana22.RoomDetail.DetailDao
 import com.example.plana22.RoomDetail.DetailEntity
+import com.example.plana22.firebase.FireStoreClass
 import kotlinx.android.synthetic.main.fragment_overview.*
+import kotlinx.android.synthetic.main.nav_header_drawer.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import androidx.core.app.ActivityCompat.startActivityForResult
+
+
+
+
 
 class OverviewFragment : Fragment(
-    R.layout.fragment_overview) {
+    R.layout.fragment_overview
+) {
 
+    //val activity  = MainActivity()
     lateinit var viewModel : OverviewViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,6 +46,11 @@ class OverviewFragment : Fragment(
         val detailApp = DetailApp()
         val detailDao = (requireActivity().application as DetailApp).db.detailDao()
 
+        updateUserDataInOverview(User())
+
+        //FireStoreClass().loadUserDataInFragment(this)
+
+        FireStoreClass().readDatabase(this)
         val factory = OverviewViewModelFactory(requireContext(), detailApp)
 
         viewModel = ViewModelProvider(requireActivity(), factory).get(OverviewViewModel::class.java)
@@ -40,6 +65,8 @@ class OverviewFragment : Fragment(
         }
 
         addCategory()
+
+
 
     }
 
@@ -56,13 +83,11 @@ class OverviewFragment : Fragment(
                 }
             })
 
-            viewModel.addCategoryDialogVMN()
+            viewModel.addCategoryDialogInVM()
 
         }
 
     }
-
-
 
     /** Method to set up the recyclerViewList on the screen*/
     private fun generateRecyclerview(
@@ -94,7 +119,6 @@ class OverviewFragment : Fragment(
 
         return overviewList
     }
-
 
     /**
      * THIS DELETE DIALOG NEEDS ATTENTION!!!.
@@ -131,12 +155,20 @@ class OverviewFragment : Fragment(
         }
 
         builder.show()
-        //}
+
+    }
+
+
+    /**A function to get the current user details from firebase and set the name in the UI ti the current user's first name.*/
+    fun updateUserDataInOverview(user: User){
+        "Hello ${user.firstName}".also { hello_name_text.text = it }
+
     }
 
     companion object {
-        val DETAIL_ACTIVITY_REQUEST_CODE = 1
+        val DETAIL_ACTIVITY_REQUEST_CODEE = 1
         val EXTRA_TASK_DETAILS = "extra task details"
+
     }
 
 
@@ -152,6 +184,8 @@ class OverviewFragment : Fragment(
         }
 
 */
+
+
 
 
 

@@ -1,16 +1,16 @@
 package com.example.plana22
+
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.plana22.Activities.introduction.ProfileActivity
 import com.example.plana22.Models.User
@@ -19,17 +19,11 @@ import com.example.plana22.fragments.OverviewFragment
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.add_task_dialog.*
-import kotlinx.android.synthetic.main.fragment_overview.*
 import kotlinx.android.synthetic.main.logout_dialog.*
 import kotlinx.android.synthetic.main.nav_activity_main.*
-import kotlinx.android.synthetic.main.nav_header.*
 import kotlinx.android.synthetic.main.nav_header_drawer.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 
+/**Token: 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*/
 class MainActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
 

@@ -50,7 +50,9 @@ class OverviewFragment : Fragment(
 
         //FireStoreClass().loadUserDataInFragment(this)
 
-        FireStoreClass().readDatabase(this)
+        //Loads the data from the database into the frament UI
+        FireStoreClass().readDatabaseAndLoadUserDataToFragment(this)
+
         val factory = OverviewViewModelFactory(requireContext(), detailApp)
 
         viewModel = ViewModelProvider(requireActivity(), factory).get(OverviewViewModel::class.java)

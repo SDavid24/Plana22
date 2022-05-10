@@ -60,7 +60,7 @@ class FireStoreClass {
 
 
     /**Method that handles the reading & constant updating in the Fragment UI of all the data of a user that's in the database when he signs in or an update is done */
-    fun readDatabase(fragment: Fragment){
+    fun readDatabaseAndLoadUserDataToFragment(fragment: Fragment){
         val docRef = mFireStore.collection(Constants.USERS).document(getCurrentUserId())
         docRef.addSnapshotListener { snapshot, e ->
             val loggedInUser = snapshot?.toObject(User::class.java)

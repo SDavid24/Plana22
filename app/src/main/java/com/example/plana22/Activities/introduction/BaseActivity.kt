@@ -3,6 +3,7 @@ package com.example.plana22.Activities.introduction
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.dialog_progress.*
 
 open class BaseActivity : AppCompatActivity() {
+
+    private var doubleBackToExitPressedOnce = false
 
     lateinit var mProgressDialog : Dialog
 
@@ -70,5 +73,32 @@ open class BaseActivity : AppCompatActivity() {
 
         finish()
     }
+
+
+    /**Method to get the current user Id from Firebase*/
+    fun getCurrentCurrentUserID() : String{
+
+        return FirebaseAuth.getInstance().currentUser!!.uid
+    }
+
+    /**Method that configures the back button in the app.
+     * Ensures that the user doesn't close the app if the back button is clicked on
+     * If it is clicked once, it goes back
+     * If twice , it leaves the app*/
+    fun doubleBackToExit(){
+        if(doubleBackToExitPressedOnce){
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this,
+            resources.getString(R.string.please_click_back_again_to_exit),
+            Toast.LENGTH_LONG
+        ).show()
+
+        Handler().postDelayed({doubleBackToExitPressedOnce = false }, 2500)
+    }
+
 
 }

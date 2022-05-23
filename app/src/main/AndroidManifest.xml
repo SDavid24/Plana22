@@ -2,12 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.plana22">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-
     <application
         android:name=".RoomDetail.DetailApp"
         android:allowBackup="true"
@@ -17,10 +11,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Plana">
         <activity
-            android:name=".Activities.introduction.ProfileActivity"
+            android:name=".Activities.operations.MembersActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/firebase_project.NoActionBar"/>
+        <activity
+            android:name=".Activities.operations.CreateBoardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/firebase_project.NoActionBar" />
+        <activity
+            android:name=".Activities.operations.TasksListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/firebase_project.NoActionBar" />
+        <activity
+            android:name=".Activities.operations.BoardsListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/firebase_project.NoActionBar" />
+        <activity
+            android:name=".Activities.introduction.ProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/firebase_project.NoActionBar" />
         <activity
             android:name=".Activities.SplashActivity"
             android:exported="true"
@@ -51,17 +65,17 @@
             android:screenOrientation="portrait"
             android:theme="@style/firebase_project.NoActionBar" />
         <activity
-            android:name=".Activities.DrawerActivity"
+            android:name=".Activities.operations.DrawerActivity"
             android:exported="false"
             android:label="@string/title_activity_drawer"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activities.DetailActivity"
+            android:name=".Activities.operations.DetailActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/CustomNoActionBarTheme" />
         <activity
-            android:name=".Activities.OverviewActivity"
+            android:name=".Activities.operations.OverviewActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Plana.NoActionBar" />
@@ -71,5 +85,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/CustomNoActionBar" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

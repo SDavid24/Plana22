@@ -95,7 +95,7 @@
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:text="CANCEL"
-            android:textColor="@android:color/black"
+            android:textColor="@color/item_plana_description_text_color"
             android:textStyle="bold" />
 
     </LinearLayout>

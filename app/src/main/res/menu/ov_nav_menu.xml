@@ -5,17 +5,16 @@
     tools:showIn="navigation_view"
     >
 
-    <group android:checkableBehavior="single">
-
+    <group>
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_baseline_home_24"
             android:title="@string/home"
             />
         <item
-            android:id="@+id/nav_habits"
+            android:id="@+id/nav_projects"
             android:icon="@drawable/ic_baseline_check"
-            android:title="@string/habits"
+            android:title="@string/Projects"
             />
 
         <item

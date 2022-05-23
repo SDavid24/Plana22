@@ -1,22 +1,15 @@
 package com.example.plana22.fragments
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.plana22.Activities.introduction.ProfileActivity
 import com.example.plana22.Adapters.OverviewAdapter
 import com.example.plana22.MVVM.OverviewViewModel
 import com.example.plana22.MVVM.OverviewViewModelFactory
-import com.example.plana22.MainActivity
-import com.example.plana22.MainActivity.Companion.MY_PROFILE_REQUEST_CODE
 import com.example.plana22.Models.User
 import com.example.plana22.R
 import com.example.plana22.RoomDetail.DetailApp
@@ -24,14 +17,8 @@ import com.example.plana22.RoomDetail.DetailDao
 import com.example.plana22.RoomDetail.DetailEntity
 import com.example.plana22.firebase.FireStoreClass
 import kotlinx.android.synthetic.main.fragment_overview.*
-import kotlinx.android.synthetic.main.nav_header_drawer.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import androidx.core.app.ActivityCompat.startActivityForResult
-
-
-
-
 
 class OverviewFragment : Fragment(
     R.layout.fragment_overview
@@ -67,8 +54,6 @@ class OverviewFragment : Fragment(
         }
 
         addCategory()
-
-
 
     }
 
@@ -155,9 +140,7 @@ class OverviewFragment : Fragment(
         builder.setNegativeButton("No") { dialogInterface, _ ->
             dialogInterface.dismiss()
         }
-
         builder.show()
-
     }
 
 

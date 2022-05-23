@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/my_profile_btn_update_marginTop"
-                    android:background="@drawable/yellow_backgrounded_rounded"
+                    android:background="@drawable/yellow_btn_background_rounded"
                     android:foreground="?attr/selectableItemBackground"
                     android:gravity="center"
                     android:paddingTop="@dimen/btn_paddingTopBottom"

@@ -4,13 +4,41 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19b5df9d-c081-4005-8000-3be152b013ad" name="Default Changelist" comment="" />
+    <list default="true" id="19b5df9d-c081-4005-8000-3be152b013ad" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/DetailActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/DrawerActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/OverviewActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/introduction/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/introduction/BaseActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/introduction/ProfileActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/introduction/ProfileActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/firebase/FireStoreClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/firebase/FireStoreClass.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/fragments/OverviewFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/fragments/OverviewFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/utils/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/utils/Constants.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/yellow_backgrounded_rounded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_intro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_intro.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_overview.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_overview.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_sign_in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_sign_in.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_sign_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_sign_up.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/app_bar_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/app_bar_drawer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/menu/ov_nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/menu/ov_nav_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="283Er2utzM1drvOHnifaaltxUqs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

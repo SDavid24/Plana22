@@ -1,18 +1,14 @@
-package com.example.plana22.Activities
+package com.example.plana22.Activities.operations
 
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
 import androidx.core.view.iterator
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.plana22.Adapters.OverviewAdapter
@@ -22,7 +18,6 @@ import com.example.plana22.RoomDetail.DetailDao
 import com.example.plana22.RoomDetail.DetailEntity
 import com.example.plana22.RoomDetail.TaskList
 import com.example.plana22.databinding.AddCategoryDialogBinding
-import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_drawer.*
 import kotlinx.android.synthetic.main.activity_main.*

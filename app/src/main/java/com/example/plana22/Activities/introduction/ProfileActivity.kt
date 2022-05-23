@@ -42,7 +42,7 @@ class ProfileActivity : BaseActivity() {
         val actionBar = supportActionBar
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_back)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
             actionBar.title = resources.getString(R.string.my_profile_title)
         }
 
@@ -63,12 +63,12 @@ class ProfileActivity : BaseActivity() {
     /**Adds the click event for iv_profile_user_image*/
     private fun photoClickedOn(){
         iv_profile_user_image.setOnClickListener {
-            //Conditional that che
+            //Conditional that check
             if (ContextCompat.checkSelfPermission(this,
                     android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-                showImageChooser()
+                Constants.showImageChooser(this)
             }else{
-                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), READ_STORAGE_PERMISSION_CODE)
+                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), Constants.READ_STORAGE_PERMISSION_CODE)
             }
         }
     }
@@ -83,9 +83,9 @@ class ProfileActivity : BaseActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        if(requestCode == READ_STORAGE_PERMISSION_CODE){
+        if(requestCode == Constants.READ_STORAGE_PERMISSION_CODE){
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                showImageChooser()
+                Constants.showImageChooser(this)
             } else {
                 Toast.makeText(
                     this,
@@ -94,14 +94,6 @@ class ProfileActivity : BaseActivity() {
                 ).show()
             }
         }
-    }
-
-    /**A function for user profile image selection from phone storage*/
-    private fun showImageChooser() {
-        // An intent for launching the image selection of phone storage.
-        val galleryIntent = Intent(ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        // Launches the image selection of phone storage using the constant code.
-        startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -118,7 +110,6 @@ class ProfileActivity : BaseActivity() {
             .into(iv_profile_user_image)
     }
 
-
     /**A function to upload the selected user image to firebase cloud storage.*/
     private fun uploadUserImage(){
         showProgressDialog(resources.getString(R.string.please_wait))
@@ -127,7 +118,7 @@ class ProfileActivity : BaseActivity() {
             //Configuration of the image path and also to have distinct Uri
             val sRef : StorageReference = FirebaseStorage.getInstance().reference
                 .child("USER_IMAGE" + System.currentTimeMillis() + "."
-                        + getFileExtension(mSelectedImageFileUri!!)
+                        + Constants.getFileExtension(this, mSelectedImageFileUri!!)
                 )
 
             sRef.putFile(mSelectedImageFileUri!!).addOnSuccessListener {
@@ -160,12 +151,6 @@ class ProfileActivity : BaseActivity() {
 
     }
 
-    /**A function to get the extension of selected image.*/
-    private fun getFileExtension(uri: Uri) : String?{
-        return  MimeTypeMap.getSingleton()
-            .getExtensionFromMimeType(contentResolver.getType(uri))
-    }
-
     /**A function to update the user profile details into the database.*/
     private fun updateUserProfileDataInProfAct(){
         val userHashMap = HashMap<String, Any>()
@@ -196,7 +181,6 @@ class ProfileActivity : BaseActivity() {
         if(anyChanges){
             FireStoreClass().updateUserProfileData(this, userHashMap)
             //FireStoreClass().readDatabase(overviewFragment)
-
 
         }else{
             Toast.makeText(
@@ -258,9 +242,4 @@ class ProfileActivity : BaseActivity() {
         }
     }
 
-    //Create a variable for GALLERY Selection which will be later used in the onActivityResult method
-    companion object{
-        private const val READ_STORAGE_PERMISSION_CODE = 1
-        private const val PICK_IMAGE_REQUEST_CODE = 2
-    }
 }

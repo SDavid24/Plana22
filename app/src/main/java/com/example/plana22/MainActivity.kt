@@ -13,6 +13,8 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
 import com.example.plana22.Activities.introduction.ProfileActivity
+import com.example.plana22.Activities.operations.BoardsListActivity
+import com.example.plana22.Activities.operations.CreateBoardActivity
 import com.example.plana22.Models.User
 import com.example.plana22.firebase.FireStoreClass
 import com.example.plana22.fragments.OverviewFragment
@@ -73,6 +75,16 @@ class MainActivity : AppCompatActivity() {
                         applicationContext,
                         "Clicked Home", Toast.LENGTH_SHORT
                     ).show()
+                }
+
+                //Using startActivityForResult so it can get the user data into the profile activity
+                R.id.nav_projects -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            BoardsListActivity::class.java
+                        )
+                    )
                 }
 
                 //Using startActivityForResult so it can get the user data into the profile activity

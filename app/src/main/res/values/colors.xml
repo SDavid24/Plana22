@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#EBE790</color>
+    <color name="colorAccent">#0C90F1</color>
     <color name="underline">#EBE790</color>
     <color name="dark_yellow">#BFB81D</color>
     <color name="blue_500">#FF214D72</color>

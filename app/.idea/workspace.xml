@@ -5,29 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19b5df9d-c081-4005-8000-3be152b013ad" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/operations/CardDetailsActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Adapters/CardMemberListItemAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Adapters/LabelColorListItemsAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Models/SelectedMembers.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/dialogs/LabelColorListDialog.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/dialogs/MemberListDialog.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/dialogs/MembersListDialog.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_add_member.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_vector_delete.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_vector_done.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/shape_dialog_rounded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_card_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/dialog_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/item_card_selected_member.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/item_label_color.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/menu/menu_delete_card.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/DetailActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/DrawerActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/OverviewActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/introduction/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/introduction/BaseActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/introduction/ProfileActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/introduction/ProfileActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/operations/MembersActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/operations/MembersActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/operations/TasksListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Activities/operations/TasksListActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Adapters/CardListItemsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Adapters/CardListItemsAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Adapters/MembersListItemsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Adapters/MembersListItemsAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Adapters/TaskListItemsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Adapters/TaskListItemsAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Models/Card.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Models/Card.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Models/Task.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Models/Task.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/Models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/Models/User.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/firebase/FireStoreClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/firebase/FireStoreClass.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/fragments/OverviewFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/fragments/OverviewFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/plana22/utils/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/plana22/utils/Constants.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/yellow_backgrounded_rounded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_intro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_intro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_overview.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_overview.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_sign_in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_sign_in.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/ic_cancel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_cancel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/ic_delete.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_delete.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/ic_done.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_done.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/ic_edit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_edit.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_sign_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_sign_up.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/app_bar_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/app_bar_drawer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/menu/ov_nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/menu/ov_nav_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/item_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/item_card.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values-v21/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values-v21/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

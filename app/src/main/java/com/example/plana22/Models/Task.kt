@@ -7,7 +7,7 @@ data class Task(
     //var taskId: String = "",
     var title: String = "",
     var createdBy: String = "",
-    val cards : ArrayList<Card> = ArrayList()
+    var cards : ArrayList<Card> = ArrayList()
 
 ) : Parcelable {
     constructor(source: Parcel) : this(

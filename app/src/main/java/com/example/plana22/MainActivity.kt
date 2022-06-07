@@ -2,7 +2,9 @@ package com.example.plana22
 
 import android.app.Activity
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -12,24 +14,29 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
+import com.example.plana22.Activities.introduction.BaseActivity
 import com.example.plana22.Activities.introduction.ProfileActivity
 import com.example.plana22.Activities.operations.BoardsListActivity
 import com.example.plana22.Activities.operations.CreateBoardActivity
 import com.example.plana22.Models.User
 import com.example.plana22.firebase.FireStoreClass
 import com.example.plana22.fragments.OverviewFragment
+import com.example.plana22.utils.Constants
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.installations.FirebaseInstallations
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.logout_dialog.*
 import kotlinx.android.synthetic.main.nav_activity_main.*
 import kotlinx.android.synthetic.main.nav_header_drawer.*
 
-/**Token: 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*/
-class MainActivity : AppCompatActivity() {
+/**Token: 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*/
+class MainActivity : BaseActivity() {
     lateinit var toggle: ActionBarDrawerToggle
 
+    private lateinit var mSharedPreferences: SharedPreferences
     private val overviewFragment = OverviewFragment()
+
     companion object{
         const val MY_PROFILE_REQUEST_CODE : Int = 11  //Initialising the request code for the use data
     }
@@ -47,9 +54,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.nav_activity_main)
         setSupportActionBar(mainView_toolbar)
 
-        //application.Context = applicationContext
+        //Initialising the shared preferences
+        mSharedPreferences = this.getSharedPreferences(
+            Constants.PLANA22_PREFERENCES, Context.MODE_PRIVATE)
 
-        val actionbar = supportActionBar
+        val tokenUpdated = mSharedPreferences
+            .getBoolean(Constants.FCM_TOKEN_UPDATED, false)
+
+
+        // Here if the token is already updated than we don't need to update it every time.
+        if (tokenUpdated){
+            // Get the current logged in user details.
+            // Show the progress dialog.
+            showProgressDialog(resources.getString(R.string.please_wait))
+            FireStoreClass().loadUserData(this, true)
+        }else{
+            FirebaseInstallations.getInstance().getToken(true).addOnCompleteListener {
+                    task->
+                if (task.isSuccessful){
+                    updateFCMToken(task.result!!.token)
+                }
+            }
+        }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.elevation = 0F //To remove the shadow beneath the activity toolbar
@@ -154,6 +180,7 @@ class MainActivity : AppCompatActivity() {
 
     /**A function to get the current user details from firebase.*/
     fun updateNavigationUserData(user: User){
+        hideProgressDialog()
         Glide
             .with(this@MainActivity)
             .load(user.image)
@@ -201,6 +228,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun tokenUpdateSuccess() {
+        hideProgressDialog()
+
+        val editor : SharedPreferences.Editor = mSharedPreferences.edit()
+        editor.putBoolean(Constants.FCM_TOKEN_UPDATED, true)
+        editor.apply()
+
+        showProgressDialog(resources.getString(R.string.please_wait))
+        FireStoreClass().loadUserData(this, true)
+    }
+
+    private fun updateFCMToken(token: String){
+        val userHashMap = HashMap<String, Any>()
+        userHashMap[Constants.FCM_TOKEN] = token
+
+        showProgressDialog(resources.getString(R.string.please_wait))
+        FireStoreClass().updateUserProfileData(this, userHashMap)
+    }
 
 
-}
+
+    }

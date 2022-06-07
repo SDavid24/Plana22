@@ -2,6 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.plana22">
 
+
+    <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+         See README(https://goo.gl/l4GJaQ) for more. -->
+    <meta-data
+        android:name="com.google.firebase.messaging.default_notification_icon"
+        android:resource="@drawable/ic_baseline_android_24" />
+    <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+         notification message. See README(https://goo.gl/6BKBk7) for more. -->
+    <meta-data
+        android:name="com.google.firebase.messaging.default_notification_color"
+        android:resource="@color/yellow" />
+    <!-- [END fcm_default_icon] -->
+    <!-- [START fcm_default_channel] -->
+    <meta-data
+        android:name="com.google.firebase.messaging.default_notification_channel_id"
+        android:value="@string/default_notification_channel_id" />
+
+
     <application
         android:name=".RoomDetail.DetailApp"
         android:allowBackup="true"
@@ -10,31 +28,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Plana">
+
+        <activity
+            android:name=".Activities.operations.CardDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/firebase_project.NoActionBar"/>
+
         <activity
             android:name=".Activities.operations.MembersActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/firebase_project.NoActionBar"/>
+            android:theme="@style/firebase_project.NoActionBar" />
+
         <activity
             android:name=".Activities.operations.CreateBoardActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/firebase_project.NoActionBar" />
+
         <activity
             android:name=".Activities.operations.TasksListActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/firebase_project.NoActionBar" />
+
         <activity
             android:name=".Activities.operations.BoardsListActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/firebase_project.NoActionBar" />
+
         <activity
             android:name=".Activities.introduction.ProfileActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/firebase_project.NoActionBar" />
+
         <activity
             android:name=".Activities.SplashActivity"
             android:exported="true"
@@ -46,50 +76,69 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Activities.introduction.BaseActivity"
             android:exported="false" />
+
         <activity
             android:name=".Activities.introduction.SignInActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/firebase_project.NoActionBar" />
+
         <activity
             android:name=".Activities.introduction.SignUpActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/firebase_project.NoActionBar" />
+
         <activity
             android:name=".Activities.introduction.IntroActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/firebase_project.NoActionBar" />
+
         <activity
             android:name=".Activities.operations.DrawerActivity"
             android:exported="false"
             android:label="@string/title_activity_drawer"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".Activities.operations.DetailActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/CustomNoActionBarTheme" />
+
         <activity
             android:name=".Activities.operations.OverviewActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Plana.NoActionBar" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/CustomNoActionBar" />
+
+        <service
+            android:name=".fcm.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

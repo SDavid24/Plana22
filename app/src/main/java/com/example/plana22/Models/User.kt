@@ -5,13 +5,14 @@ import android.os.Parcelable
 
 
 data class User(
-    val id : String = "",
+    var id : String = "",
     val firstName : String = "",
     val lastName : String = "",
     val email : String = "",
     val mobile : Long = 0,
     val image : String = "",
     val fcmToken : String = "",
+    var selected : Boolean = false
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString()!!,
@@ -19,7 +20,9 @@ data class User(
         source.readString()!!,
         source.readString()!!,
         source.readLong(),
-        source.readString()!!
+        source.readString()!!,
+        source.readString()!!,
+        source.readBoolean()!!
     )
 
     override fun describeContents() = 0
@@ -29,9 +32,10 @@ data class User(
         writeString(firstName)
         writeString(lastName)
         writeString(email)
-        writeString(image)
         writeLong(mobile)
+        writeString(image)
         writeString(fcmToken)
+        writeBoolean(selected)
     }
 
     companion object {

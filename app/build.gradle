@@ -102,11 +102,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:24.1.1'
     //Firebase Storage dependency
     implementation 'com.google.firebase:firebase-storage:20.0.1'
+    //Firebase cloud messaging notifications dependency
+    implementation 'com.google.firebase:firebase-messaging:23.0.5'
 
     //Glide dependency
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
 
+    //Library that makes images circular in shape
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     //Permissions dependency

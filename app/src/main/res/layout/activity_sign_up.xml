@@ -14,7 +14,7 @@
         android:layout_height="?attr/actionBarSize">
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_title_sign_up"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"

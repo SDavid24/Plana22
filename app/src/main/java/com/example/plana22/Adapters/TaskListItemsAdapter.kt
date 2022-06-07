@@ -8,16 +8,24 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plana22.Activities.operations.TasksListActivity
+import com.example.plana22.Models.Board
 import com.example.plana22.Models.Task
 import com.example.plana22.R
 import kotlinx.android.synthetic.main.item_task.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class TaskListItemsAdapter(val context: Context,
                            val list: ArrayList<Task>)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private var mPositionDraggedFrom = -1
+    private var mPositionDraggedTo = -1
 
     class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
@@ -26,11 +34,13 @@ class TaskListItemsAdapter(val context: Context,
 
 
         // Here the layout params are converted dynamically according to the screen size as width is 70% and height is wrap_content.
-        val layoutParams = LinearLayout.LayoutParams((
-                parent.width * 0.7).toInt(), LinearLayout.LayoutParams.WRAP_CONTENT)
+        val layoutParams = LinearLayout.LayoutParams(
+            (
+                    parent.width * 0.7).toInt(), LinearLayout.LayoutParams.WRAP_CONTENT
+        )
 
         // Here the dynamic margins are applied to the view.
-        layoutParams.setMargins((15.toDp().toPx()), 0,  (40.toDp().toPx()), 0)
+        layoutParams.setMargins((15.toDp().toPx()), 0, (40.toDp().toPx()), 0)
         view.layoutParams = layoutParams
 
         return TaskViewHolder(view)
@@ -39,7 +49,7 @@ class TaskListItemsAdapter(val context: Context,
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val model = list[position]
 
-        if(holder is TaskViewHolder){
+        if (holder is TaskViewHolder) {
 
             //Setting the last position of the recycler view to be the Add Task textView button
             if (position == list.size - 1) {
@@ -180,8 +190,83 @@ class TaskListItemsAdapter(val context: Context,
             val adapter = CardListItemsAdapter(context, model.cards)
             holder.itemView.rv_card_list.adapter = adapter
 
+            adapter.setOnClickListener(object : CardListItemsAdapter.OnClickListener {
+                override fun onClick(cardPosition: Int) {
+                    if (context is TasksListActivity) {
+                        context.cardDetails(position, cardPosition)
+                    }
+                }
+
+            })
+
+            /** Creates a divider {@link RecyclerView.ItemDecoration} that can be used with a
+             * LinearLayoutManager}.*/
+            val dividerItemDecoration = DividerItemDecoration(context,
+                DividerItemDecoration.VERTICAL
+            )
+            holder.itemView.rv_card_list.addItemDecoration(dividerItemDecoration)
+
+            //Creates an ItemTouchHelper that will work with the given Callback.
+            val helper = ItemTouchHelper(
+                object : ItemTouchHelper.SimpleCallback(
+                    ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0
+                ) {
+                    override fun onMove(
+                        recyclerView: RecyclerView, dragged: RecyclerView.ViewHolder,
+                        target: RecyclerView.ViewHolder
+                    ): Boolean {
+                        val draggedPosition = dragged.adapterPosition
+                        val targetPosition = target.adapterPosition
+
+                        if (mPositionDraggedFrom == -1) {
+                            mPositionDraggedFrom = draggedPosition //Initialising the global variable
+                        }
+                        mPositionDraggedTo = targetPosition
+
+                        //Swaps the elements at the specified positions in the specified list.
+                        Collections.swap(list[position].cards, draggedPosition, targetPosition)
+
+                        //Notifies the adapter of the change to it can reflected immediately in the UI
+                        //moves item in `draggedPosition` to `targetPosition` in adapter.
+                        adapter.notifyItemMoved(draggedPosition, targetPosition)
+
+                        return false  // true if moved, false otherwise
+                    }
+
+                    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    }
+
+
+                    /**Called by the ItemTouchHelper when the user interaction with an element
+                    is over and it also completes its animation.*/
+                    override fun clearView(
+                        recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder
+                    ) {
+                        super.clearView(recyclerView, viewHolder)
+
+                        if (mPositionDraggedFrom != -1 && mPositionDraggedTo != -1
+                            && mPositionDraggedFrom != mPositionDraggedTo
+                        ) {
+
+                            //Calls the updateCard method in the TasksListActivity after the operation id finished
+                            (context as TasksListActivity).updateCardsInTaskList(
+                                position, list[position].cards
+                            )
+                        }
+
+                        // Reset the global variables
+                        mPositionDraggedFrom = -1
+                        mPositionDraggedFrom = -1
+
+                    }
+                })
+
+            /*Attaches the ItemTouchHelper to the provided RecyclerView. If TouchHelper is already
+                    attached to a RecyclerView, it will first detach from the previous one.*/
+            helper.attachToRecyclerView(holder.itemView.rv_card_list)
 
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -227,4 +312,6 @@ class TaskListItemsAdapter(val context: Context,
         alertDialog.setCancelable(false) // Will not allow user to cancel after clicking on remaining screen area.
         alertDialog.show()  // show the dialog to UI
     }
+
+
 }

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="horizontal"
-    android:padding="5dp">
+    android:padding="3dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_selected_member_image"

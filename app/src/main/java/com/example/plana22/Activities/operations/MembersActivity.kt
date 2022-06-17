@@ -1,17 +1,15 @@
 package com.example.plana22.Activities.operations
 
-import adapters.MembersListItemsAdapter
+import com.example.plana22.Adapters.MembersListItemsAdapter
 import android.app.Activity
 import android.app.Dialog
 import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.plana22.Activities.introduction.BaseActivity
 import com.example.plana22.Models.Board
 import com.example.plana22.Models.User
@@ -19,7 +17,6 @@ import com.example.plana22.R
 import com.example.plana22.firebase.FireStoreClass
 import com.example.plana22.utils.Constants
 import kotlinx.android.synthetic.main.activity_members.*
-import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.dialog_search_member.*
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -300,7 +297,6 @@ class MembersActivity : BaseActivity() {
             } finally {
                 connection?.disconnect()
             }
-
 
             return result
         }

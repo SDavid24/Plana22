@@ -103,7 +103,7 @@
                     android:paddingTop="@dimen/btn_paddingTopBottom"
                     android:paddingBottom="@dimen/btn_paddingTopBottom"
                     android:text="@string/sign_in"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/item_plana_description_text_color"
                     android:textSize="@dimen/btn_text_size" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

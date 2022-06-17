@@ -1,6 +1,5 @@
 package com.example.plana22.Adapters
 
-import adapters.MembersListItemsAdapter
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater

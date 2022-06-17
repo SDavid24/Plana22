@@ -2,7 +2,6 @@ package com.example.plana22.Activities.operations
 
 import android.app.Activity
 import android.app.DatePickerDialog
-import android.app.Dialog
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
@@ -19,7 +18,6 @@ import com.example.plana22.Models.Task
 import com.example.plana22.Models.User
 import com.example.plana22.R
 import com.example.plana22.dialogs.LabelColorListDialog
-import com.example.plana22.dialogs.MemberListDialog
 import com.example.plana22.dialogs.MembersListDialog
 import com.example.plana22.firebase.FireStoreClass
 import com.example.plana22.utils.Constants
@@ -44,13 +42,63 @@ class CardDetailsActivity : BaseActivity() {
         getIntentData()
 
         setupActionBar()
+    }
 
+    /**A function to setup action bar*/
+    private fun setupActionBar() {
+        setSupportActionBar(toolbar_card_details_activity)
+
+        val actionBar = supportActionBar
+
+        if (actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+
+            actionBar.title = mBoardDetails.taskList[mTaskPosition].cards[mCardPosition].name
+        }
+
+        et_name_card_details.setText(mBoardDetails.taskList[mTaskPosition].cards[mCardPosition].name)
+        et_name_card_details.setSelection(mBoardDetails.taskList[mTaskPosition].cards[mCardPosition].name.length)
+
+        //Making the "back" able to take the activity back to the previous activity
+        toolbar_card_details_activity.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
+
+        btn_update_card_details.setOnClickListener {
+            if (et_name_card_details.text.toString().isNotEmpty()){
+                updateCardDetails()
+            }else{
+                showSnackBar("Please enter a card name")
+            }
+        }
+
+
+        tv_select_label_color.setOnClickListener {
+            labelColorDialog()
+        }
+
+        tv_select_members.setOnClickListener{
+            membersListDialog()
+        }
+
+        //Setting up the members list recycler view
         setUpSelectedMembersList()
 
-        tv_select_members.setOnClickListener {
-            membersListDialog()
-            //labelColorDialog()
-            Toast.makeText(this, "member dialog clicked", Toast.LENGTH_SHORT).show()
+
+        mSelectedDueDateMilliSeconds = mBoardDetails.taskList[mTaskPosition]
+            .cards[mCardPosition].dueDate
+
+        if (mSelectedDueDateMilliSeconds > 0){
+            val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
+            val selectedDate = simpleDateFormat.format(Date(mSelectedDueDateMilliSeconds))
+
+            tv_select_due_date.text = selectedDate
+        }
+
+        tv_select_due_date.setOnClickListener {
+            showDatePicker()
         }
 
     }
@@ -201,7 +249,7 @@ class CardDetailsActivity : BaseActivity() {
 
 
     /**A function to launch the  members list dialog.*/
-/*
+
     private fun membersListDialog(){
         // Here we get the updated assigned members list
         val cardAssignedMembersList = mBoardDetails.taskList[mTaskPosition]
@@ -259,66 +307,10 @@ class CardDetailsActivity : BaseActivity() {
         }
         listDialog.show()
     }
-*/
-
 
     /**
      * A function to launch and setup assigned members detail list into recyclerview.
      */
-    private fun membersListDialog() {
-
-        // Here we get the updated assigned members list
-        val cardAssignedMembersList =
-            mBoardDetails.taskList[mTaskPosition].cards[mCardPosition].assignedTo
-
-        if (cardAssignedMembersList.size > 0) {
-            // Here we got the details of assigned members list from the global members list which is passed from the Task List screen.
-            for (i in mMembersDetailsList.indices) {
-                for (j in cardAssignedMembersList) {
-                    if (mMembersDetailsList[i].id == j) {
-                        mMembersDetailsList[i].selected = true
-                    }
-                }
-            }
-        } else {
-            for (i in mMembersDetailsList.indices) {
-                mMembersDetailsList[i].selected = false
-            }
-        }
-
-        val listDialog = object : MemberListDialog(
-            this@CardDetailsActivity,
-            mMembersDetailsList,
-            resources.getString(R.string.str_select_member) ){
-
-            override fun onItemSelected(user: User, action: String) {
-
-                if (action == Constants.SELECT) {
-                    if (!mBoardDetails.taskList[mTaskPosition].cards[mCardPosition]
-                            .assignedTo.contains(user.id)
-                    ) {
-                        mBoardDetails.taskList[mTaskPosition].cards[mCardPosition].assignedTo.add(
-                            user.id
-                        )
-                    }
-                } else {
-                    mBoardDetails.taskList[mTaskPosition].cards[mCardPosition].assignedTo.remove(
-                        user.id
-                    )
-
-                    for (i in mMembersDetailsList.indices) {
-                        if (mMembersDetailsList[i].id == user.id) {
-                            mMembersDetailsList[i].selected = false
-                        }
-                    }
-                }
-
-                setUpSelectedMembersList()
-            }
-        }
-
-        listDialog.show()
-    }
 
     /**Sets up the recycler of the selected members list*/
     private fun setUpSelectedMembersList(){
@@ -361,8 +353,8 @@ class CardDetailsActivity : BaseActivity() {
             //When anyone is clicked on, It shows the members list dialog
             adapter.setOnClickListener(object : CardMemberListItemAdapter.OnClickListener{
                 override fun onClick() {
-                    //membersListDialog()
-                    labelColorDialog()
+                    membersListDialog()
+                    //labelColorDialog()
                 }
 
             })
@@ -425,63 +417,6 @@ class CardDetailsActivity : BaseActivity() {
     }
 */
 
-    /**A function to setup action bar*/
-    private fun setupActionBar() {
-        setSupportActionBar(toolbar_card_details_activity)
-
-        val actionBar = supportActionBar
-
-        if (actionBar != null){
-            actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
-
-            actionBar.title = mBoardDetails.taskList[mTaskPosition].cards[mCardPosition].name
-        }
-
-        et_name_card_details.setText(mBoardDetails.taskList[mTaskPosition].cards[mCardPosition].name)
-        et_name_card_details.setSelection(mBoardDetails.taskList[mTaskPosition].cards[mCardPosition].name.length)
-
-        //Making the "back" able to take the activity back to the previous activity
-        toolbar_card_details_activity.setNavigationOnClickListener {
-            onBackPressed()
-        }
-
-
-        btn_update_card_details.setOnClickListener {
-            if (et_name_card_details.text.toString().isNotEmpty()){
-                updateCardDetails()
-            }else{
-                showSnackBar("Please enter a card name")
-            }
-        }
-
-
-        tv_select_label_color.setOnClickListener {
-            labelColorDialog()
-        }
-
-        tv_select_members.setOnClickListener{
-            //membersListDialog()
-        }
-        //Setting up the members list recycler view
-        //setUpSelectedMembersList()
-
-
-        mSelectedDueDateMilliSeconds = mBoardDetails.taskList[mTaskPosition]
-            .cards[mCardPosition].dueDate
-
-        if (mSelectedDueDateMilliSeconds > 0){
-            val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
-            val selectedDate = simpleDateFormat.format(Date(mSelectedDueDateMilliSeconds))
-
-            tv_select_due_date.text = selectedDate
-        }
-
-        tv_select_due_date.setOnClickListener {
-            showDatePicker()
-        }
-
-    }
 
     /**
      * The function to show the DatePicker Dialog and select the due date.

@@ -1,5 +1,6 @@
 package com.example.plana22.fragments
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -115,10 +116,12 @@ class OverviewFragment : Fragment(
     fun deleteRecordDialog(id:Int, detailDao: DetailDao) {
         //checkIfFragmentAttached {
 
-        val builder = androidx.appcompat.app.AlertDialog.Builder(
+        /*val builder = androidx.appcompat.app.AlertDialog.Builder(
             requireContext(),
             R.style.AlertDialogTheme
-        )
+        )*/
+        val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext(), R.style.AlertDialogTheme)
+
         builder.setCancelable(false)
         builder.setTitle("Delete category")
         builder.setIcon(android.R.drawable.ic_dialog_alert)

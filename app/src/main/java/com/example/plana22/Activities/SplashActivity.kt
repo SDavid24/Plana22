@@ -22,23 +22,8 @@ class SplashActivity : AppCompatActivity() {
 
         //Calling 'em functions
         splashLoad()
-        getStartedClick()
     }
 
-
-    //Click listener for Get started button
-    private fun getStartedClick(){
-        btn_getStarted.setOnClickListener {
-            val currentUserId = FireStoreClass().getCurrentUserId()
-
-            if (currentUserId.isNotEmpty()){
-                startActivity(Intent(this, MainActivity::class.java))
-            }else{
-                startActivity(Intent(this, IntroActivity::class.java))
-            }
-            finish()
-        }
-    }
 
     //This method makes the Splash activity move to the Intro or main activity after the stipulated time
     private fun splashLoad(){

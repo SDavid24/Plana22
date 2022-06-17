@@ -1,6 +1,6 @@
 package com.example.plana22.dialogs
 
-import adapters.MembersListItemsAdapter
+import com.example.plana22.Adapters.MembersListItemsAdapter
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
@@ -11,16 +11,17 @@ import com.example.plana22.Models.User
 import com.example.plana22.R
 import kotlinx.android.synthetic.main.dialog_list.view.*
 
+
 abstract class MembersListDialog(
     context: Context,
-    private val list: ArrayList<User>,
-    private val title : String = ""
-) : Dialog(context){
+    private var list: ArrayList<User>,
+    private val title: String = ""
+) : Dialog(context) {
 
-    private var adapter :  MembersListItemsAdapter? = null
+    private var adapter: MembersListItemsAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState ?: Bundle())
 
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_list, null)
 
@@ -30,27 +31,7 @@ abstract class MembersListDialog(
         setUpRecyclerView(view)
     }
 
-    private fun setUpRecyclerView(view: View)
-  /*
-    {
-        view.tvTitle_dialog_list.text = title
-
-        if (list.size > 0) {
-            view.rvList.layoutManager = LinearLayoutManager(context)
-            adapter = MembersListItemsAdapter(context, list)
-            view.rvList.adapter = adapter
-
-            adapter!!.onclickListener = object : MembersListItemsAdapter.OnclickListener{
-                override fun onClick(position: Int, user: User, action: String) {
-                    dismiss()
-                    onItemSelected(user, action)
-                }
-
-            }
-        }
-    }*/
-
-    {
+    private fun setUpRecyclerView(view: View) {
         view.tvTitle_dialog_list.text = title
 
         if (list.size > 0) {
@@ -59,16 +40,16 @@ abstract class MembersListDialog(
             adapter = MembersListItemsAdapter(context, list)
             view.rvList.adapter = adapter
 
-            adapter!!.onclickListener = object :
+            adapter!!.setOnClickListener(object :
                 MembersListItemsAdapter.OnclickListener {
                 override fun onClick(position: Int, user: User, action:String) {
                     dismiss()
                     onItemSelected(user, action)
                 }
-            }
+            })
         }
     }
 
-    protected abstract fun onItemSelected(user: User, action: String)
-
+    protected abstract fun onItemSelected(user: User, action:String)
 }
+

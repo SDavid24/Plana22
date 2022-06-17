@@ -20,6 +20,7 @@ import com.example.plana22.Activities.operations.BoardsListActivity
 import com.example.plana22.Activities.operations.CreateBoardActivity
 import com.example.plana22.Models.User
 import com.example.plana22.firebase.FireStoreClass
+import com.example.plana22.fragments.DetailFragment
 import com.example.plana22.fragments.OverviewFragment
 import com.example.plana22.utils.Constants
 import com.google.android.material.navigation.NavigationView
@@ -198,9 +199,35 @@ class MainActivity : BaseActivity() {
     override fun onBackPressed() {
         if (nav_drawer_layout.isDrawerOpen(GravityCompat.START)){
             nav_drawer_layout.closeDrawer(GravityCompat.START)
-        } else{
+
+        } else{  //Checks if the fragment is the Overview fragment and gives it the double backPress criterion and  if it is DetailFragment it gives it the default back press behaviour
+           /* val navHost = supportFragmentManager.findFragmentById(R.id.flFragment)
+            navHost?.let { navFragment ->
+                navFragment.childFragmentManager.primaryNavigationFragment?.let { fragment ->
+                    if (fragment is OverviewFragment) {
+                        Toast.makeText(
+                            applicationContext,
+                            "Back pressed successfully", Toast.LENGTH_LONG
+                        ).show()
+
+                        doubleBackToExit()
+
+
+                    } else {
+                        super.onBackPressed()
+                        Toast.makeText(
+                            applicationContext,
+                            "Back pressed successfully", Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }*/
+
             super.onBackPressed()
+
+            //doubleBackToExit()
         }
+
     }
 
     /**Dialog to carry out the Log out function*/

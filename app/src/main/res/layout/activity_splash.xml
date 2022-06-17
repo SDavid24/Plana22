@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/middle_yellow_image"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="200dp"
-        android:src="@drawable/yellow_circle"
+        android:src="@drawable/yellow_brown_man_scheduling"
         android:layout_gravity="center"
         android:layout_marginTop="130dp"/>
 
@@ -43,11 +43,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="to-list and task manager app which"
+            android:text="todo-list and task manager app which"
             android:textSize="15sp"
             android:layout_margin="4dp"
-
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,15 +63,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Get Started"
+        android:textColor="@color/item_plana_description_text_color"
         android:textAllCaps="false"
-        android:backgroundTint="@color/teal_700"
         android:layout_gravity="center"
         android:layout_margin="30dp"
-        android:theme="@style/ButtonTheme"
-        android:background="@drawable/mybutton"/>
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/yellow_btn_background_rounded"/>
 
-    <!--
-        android:backgroundTint="@color/teal_200"/>
-    -->
 
 </LinearLayout>

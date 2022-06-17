@@ -47,6 +47,7 @@ dependencies {
     implementation 'androidx.room:room-common:2.3.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.5'
     def room_version = '2.4.0-beta02'
     //def room_version = '2.5.0'
     def activityVersion = '1.4.0'

@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.plana22.Activities.introduction.ProfileActivity
+import com.example.plana22.Activities.introduction.SignInActivity
 import com.example.plana22.Activities.introduction.SignUpActivity
 import com.example.plana22.Activities.operations.*
 import com.example.plana22.MainActivity
@@ -24,8 +25,10 @@ class FireStoreClass {
     fun registerUser(activity: SignUpActivity, userInfo: User){
         mFireStore.collection(Constants.USERS)
             .document(getCurrentUserId())
-            .set(userInfo, SetOptions.merge()).addOnSuccessListener {
-                activity.userRegisteredSuccess()
+            .set(userInfo, SetOptions.merge())
+            .addOnSuccessListener {
+                //activity.userRegisteredSuccess()
+                activity.signInUserSuccess(userInfo)
             }
             .addOnFailureListener { e ->
                 activity.hideProgressDialog()
@@ -48,6 +51,9 @@ class FireStoreClass {
                 val loggedInUser = document.toObject(User::class.java)
                 if(loggedInUser != null){
                     when(activity){
+                        is SignInActivity ->
+                            activity.signInUserSuccess(loggedInUser)
+
                         is SignUpActivity ->
                             activity.signInUserSuccess(loggedInUser)
 
@@ -59,8 +65,6 @@ class FireStoreClass {
 
                         is BoardsListActivity ->
                             activity.getUserFirstNameAndBoardList(loggedInUser, readBoardsList)
-
-
 
                     }
                 }

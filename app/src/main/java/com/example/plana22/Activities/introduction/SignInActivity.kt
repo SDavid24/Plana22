@@ -97,4 +97,8 @@ class SignInActivity : BaseActivity() {
         }
 
     }
+
+    override fun onBackPressed() {
+        doubleBackToExit()
+    }
 }

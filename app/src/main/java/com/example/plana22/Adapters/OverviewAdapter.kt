@@ -39,22 +39,6 @@ class OverviewAdapter(
                         ).show()
 
                     }
-                    R.id.item_1 -> {
-                        Toast.makeText(context,
-                            "item 1 clicked ", Toast.LENGTH_SHORT).show()
-                        //true
-                    }
-                    R.id.item_2 -> {
-                        Toast.makeText(
-                            context,
-                            "item 2 clicked", Toast.LENGTH_SHORT).show()
-                        //true
-                    }
-                    R.id.item_3 -> {
-                        Toast.makeText(context,
-                            "item 3 clicked", Toast.LENGTH_SHORT).show()
-                        //true
-                    }
                 }
                  false
             }

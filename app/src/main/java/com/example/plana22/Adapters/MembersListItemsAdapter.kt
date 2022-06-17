@@ -1,4 +1,4 @@
-package adapters
+package com.example.plana22.Adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -43,11 +43,21 @@ class MembersListItemsAdapter(val context : Context,
 
             holder.itemView.tv_member_email.text = model.email
 
-            if(onclickListener != null) {
-                if (model.selected) {
-                    onclickListener!!.onClick(position, model, Constants.UNSELECT)
-                }else{
-                    onclickListener!!.onClick(position, model, Constants.SELECT)
+
+            //Shows the Check image if the item is selected and removes it if it isn't
+            if (model.selected){
+                holder.itemView.iv_selected_member.visibility = View.VISIBLE
+            }else{
+                holder.itemView.iv_selected_member.visibility = View.GONE
+            }
+
+            holder.itemView.setOnClickListener {
+                if (onclickListener != null) {
+                    if (model.selected) {
+                        onclickListener!!.onClick(position, model, Constants.UNSELECT)
+                    } else {
+                        onclickListener!!.onClick(position, model, Constants.SELECT)
+                    }
                 }
             }
         }
@@ -55,6 +65,9 @@ class MembersListItemsAdapter(val context : Context,
 
     override fun getItemCount(): Int {
         return list.size
+    }
+    fun setOnClickListener(onclickListener: OnclickListener){
+        this.onclickListener = onclickListener
     }
 
     interface OnclickListener{

@@ -105,7 +105,10 @@ class SignUpActivity : BaseActivity() {
                 true
             }
         }
+    }
 
+    override fun onBackPressed() {
+        doubleBackToExit()
     }
 
 

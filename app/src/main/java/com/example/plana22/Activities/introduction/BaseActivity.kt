@@ -51,21 +51,20 @@ open class BaseActivity : AppCompatActivity() {
         snackBar.show()
     }
 
-
     /**Method that handles the immediate afterwards of the sign up process*/
     fun userRegisteredSuccess(){
         Toast.makeText(this, "You have successfully registered",
             Toast.LENGTH_LONG).show()
         hideProgressDialog()
 
-        FirebaseAuth.getInstance().signOut()
-        finish()
+
+        //FirebaseAuth.getInstance().signInWithEmailAndPassword()
+        //finish()
     }
 
     /**Method that handles the immediate afterwards of the sign in process*/
     fun signInUserSuccess(user: User) {
-        Toast.makeText(this, "Welcome!",
-            Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Welcome!", Toast.LENGTH_LONG).show()
         hideProgressDialog()
 
         Log.e("Location", "It reaches here")

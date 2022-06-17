@@ -53,7 +53,6 @@ class CardMemberListItemAdapter(
                 }
             }
         }
-
     }
 
     override fun getItemCount(): Int {

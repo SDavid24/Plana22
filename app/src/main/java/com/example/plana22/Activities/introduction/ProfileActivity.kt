@@ -242,4 +242,7 @@ class ProfileActivity : BaseActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        doubleBackToExit()
+    }
 }

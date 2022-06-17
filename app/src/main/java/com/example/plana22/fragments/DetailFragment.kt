@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +27,19 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val overviewFragment = OverviewFragment()
+
+                parentFragmentManager.beginTransaction().apply {
+                    addToBackStack(null)
+                    replace(R.id.flFragment, overviewFragment)
+                    commit()
+                }
+            }
+        })
+
+        //activity!!.onBackPressed()
         //detailActivityModel = DetailEntity()
         val bundle = arguments
         val detailDao = (requireActivity().application as DetailApp).db.detailDao()
@@ -116,7 +130,6 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     }
 
 
-
     /**ATTENTION NEEDED HERE TOO!!
      * This one add the tasks Successfully then the app crashes immediately afterwards */
     private fun addTaskToCategoryDialog(
@@ -161,8 +174,6 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                         requireContext(), "There's UPDATE problem!!!",
                         Toast.LENGTH_SHORT).show()
                 }
-
-
 
                 Toast.makeText(
                     requireContext(), "Task added", Toast.LENGTH_SHORT).show()
@@ -237,7 +248,6 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                 detailActivityModel!!.taskList.removeAt(id)
 
                 detailDao.update(detailActivityModel!!)
-
             }
 
             Toast.makeText(
@@ -255,4 +265,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         builder.show()
 
     }
+
+
+
 }
